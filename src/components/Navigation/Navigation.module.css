@@ -1,0 +1,23 @@
+.nav{
+    padding: 8px 0px 8px 4px;
+    border-bottom: 1px solid #000000;
+
+    margin-bottom: 12px;
+}
+
+.list{
+    display: flex;
+    gap: 16px;
+}
+
+.link{
+    font-size: 24px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 300;
+    color: #000000;
+    /* transition: color 300ms ease; */
+}
+
+.active{
+    color: #dc143c;
+}
