@@ -7,6 +7,7 @@ import Homepage from "../../pages/Homepage/Homepage";
 import MoviesPage from "../../pages/MoviesPage/MoviesPage";
 import MovieDetailsPage from "../../pages/MovieDetailsPage/MovieDetailsPage";
 import MovieCast from "../MovieCast/MovieCast";
+import MovieReviews from "../MovieReviews/MovieReviews";
 
 import Navigation from "../Navigation/Navigation";
 
@@ -20,6 +21,7 @@ function App() {
       <Route path="/movies" element={<MoviesPage />} />
       <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
         <Route path="cast" element={<MovieCast />} />
+        <Route path="reviews" element={<MovieReviews />} />
       </Route>
     </Routes>
     </>

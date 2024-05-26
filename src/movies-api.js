@@ -30,3 +30,20 @@ export async function getDataCast(id) {
 
   return response.data;
 }
+
+// Reviews
+
+export async function getDataReviews(id) {
+  const response = await axios.get(`/movie/${id}/reviews`, options);
+
+  return response.data;
+}
+
+// Seacrh
+
+export async function getDataSearch(value) {
+  const response = await axios.get(`/search/movie?query=${value}`, options);
+
+  return response.data;
+}
+

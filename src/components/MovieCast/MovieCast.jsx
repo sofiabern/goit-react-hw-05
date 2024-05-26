@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import { getDataCast } from "../../movies-api";
 
 function MovieCast() {
-  const [cast, setCast] = useState({});
+  const [cast, setCast] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
     async function getResults() {
       try {
-        const results = await getDataCast(movieId);
-        console.log(results);
+        const data = await getDataCast(movieId);
+        const results = await data.cast
         setCast(results);
       } catch (error) {
       } finally {
@@ -23,11 +23,11 @@ function MovieCast() {
       {cast.map((person) => (
         <li key={person.id}>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${person.cast.profile_path}`}
+            src={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
             alt=""
           />
-          <p>{person.cast.name}</p>
-          <p>{person.cast.character}</p>
+          <p>{person.name}</p>
+          <p>Character: {person.character}</p>
         </li>
       ))}
     </ul>

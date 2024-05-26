@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Outlet } from "react-router-dom";
 
 import { getDataDetails } from "../../movies-api";
 
@@ -20,7 +20,6 @@ function MovieDetailsPage() {
         const results = await getDataDetails(movieId);
 
         setSelectedMovie(results);
-    
       } catch (error) {
         setIsError(true);
       } finally {
@@ -30,18 +29,19 @@ function MovieDetailsPage() {
     getResults();
   }, [movieId]);
 
-//   const { original_title, vote_average, overview, genres, poster_path } = selectedMovie;
+  //   const { original_title, vote_average, overview, genres, poster_path } = selectedMovie;
   const isSelectedMovieLoaded = selectedMovie.genres;
 
-  return(
+  return (
     <>
-    <button>Go back</button>
-    {isSelectedMovieLoaded && <MovieDetails movie={selectedMovie}/>}
-    <p>Additional information</p>
-    <Link to="cast">Cast</Link>
-
+      <Link to="/">Go back</Link>
+      {isSelectedMovieLoaded && <MovieDetails movie={selectedMovie} />}
+      <p>Additional information</p>
+      <Link to="cast">Cast</Link>
+      <Link to="reviews">Reviews</Link>
+      <Outlet />
     </>
-  )
+  );
 }
 
 export default MovieDetailsPage;
