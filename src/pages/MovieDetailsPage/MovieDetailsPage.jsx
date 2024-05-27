@@ -9,7 +9,7 @@ function MovieDetailsPage() {
   const [selectedMovie, setSelectedMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
-  const goBackUrl = useRef(location.state.goBackPath || "/");
+  const goBackUrl = useRef(location.state?.goBackPath || "/");
 
 
   const [isError, setIsError] = useState(false);
