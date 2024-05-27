@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 
 import { getDataDetails } from "../../movies-api";
 
@@ -8,6 +8,10 @@ import MovieDetails from "../../components/MovieDetails/MovieDetails";
 function MovieDetailsPage() {
   const [selectedMovie, setSelectedMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
+  const goBackUrl = useRef(location.state.goBackPath || "/");
+
+
   const [isError, setIsError] = useState(false);
   const { movieId } = useParams();
 
@@ -29,12 +33,11 @@ function MovieDetailsPage() {
     getResults();
   }, [movieId]);
 
-  //   const { original_title, vote_average, overview, genres, poster_path } = selectedMovie;
   const isSelectedMovieLoaded = selectedMovie.genres;
 
   return (
     <>
-      <Link to="/">Go back</Link>
+      <Link to={goBackUrl.current}>Go back</Link>
       {isSelectedMovieLoaded && <MovieDetails movie={selectedMovie} />}
       <p>Additional information</p>
       <Link to="cast">Cast</Link>

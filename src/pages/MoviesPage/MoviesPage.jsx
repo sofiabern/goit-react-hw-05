@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {useLocation, useSearchParams } from "react-router-dom";
 
 import { getDataSearch } from "../../movies-api";
 
@@ -7,7 +8,9 @@ import MovieList from "../../components/MovieList/MovieList";
 
 function MoviesPage() {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState("");
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
     async function getResults() {
@@ -20,14 +23,14 @@ function MoviesPage() {
   }, [query]);
 
   const handleSearch = async (value) => {
-    setQuery(value);
+    setSearchParams({ query: value });
     setMovies([]);
   };
 
   return (
     <>
       <SearchBar onSearch={handleSearch} />
-      <MovieList movies={movies} />
+      <MovieList movies={movies} location={location} />
     </>
   );
 }

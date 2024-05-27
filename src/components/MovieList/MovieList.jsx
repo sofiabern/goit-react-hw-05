@@ -1,11 +1,11 @@
 import MovieItem from "../MovieItem/MovieItem";
 
-function MovieList({ movies }) {
+function MovieList({ movies, location }) {
   return (
     <ul>
       {movies.map((movie) => (
         <li key={movie.id}>
-          <MovieItem movie={movie} />
+          <MovieItem movie={movie} location={location}/>
         </li>
       ))}
     </ul>

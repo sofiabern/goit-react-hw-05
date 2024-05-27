@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 
-function MovieItem({movie}){
+function MovieItem({movie, location}){
     return(
         <div>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+            <Link to={`/movies/${movie.id}`} state={{ goBackPath: location }}>{movie.title}</Link>
         </div>
     )
 }

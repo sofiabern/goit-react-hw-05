@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+
 import { getDataTrending } from "../../movies-api";
 
 import MovieList from "../../components/MovieList/MovieList";
@@ -10,6 +11,7 @@ function Homepage() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+
 
   useEffect(() => {
     async function getResults() {
