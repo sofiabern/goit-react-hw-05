@@ -11,7 +11,7 @@ function SearchBar({ onSearch }) {
     <Formik
       initialValues={{ query: "" }}
       onSubmit={(values, actions) => {
-        if (!values.query) return toast.error("Type something in");
+        if (!values.query) return toast.error("Type something in.");
 
         onSearch(values.query);
 
