@@ -22,7 +22,6 @@ function MoviesPage() {
 
   useEffect(() => {
     if (!query.trim()) {
-      console.log("gecnj")
       return;
     }
     
@@ -30,7 +29,6 @@ function MoviesPage() {
       try {
         setIsLoading(true);
         setIsError(false);
-        // setIsUniqueQuery(false)
 
         const data = await getDataSearch(query);
         const results = await data.results; 
