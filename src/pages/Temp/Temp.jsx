@@ -6,7 +6,7 @@ import { getDataTrending } from "../../movies-api";
 import MovieList from "../../components/MovieList/MovieList";
 import Loader from "../../components/Loader/Loader";
 
-import css from "./HomePage.module.css"
+import css from "./Temp.module.css"
 
 function Temp() {
   const [movies, setMovies] = useState([]);
