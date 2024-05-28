@@ -8,7 +8,7 @@ import Loader from "../../components/Loader/Loader";
 
 import css from "./HomePage.module.css"
 
-function HomePage() {
+function Temp() {
   const [movies, setMovies] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -45,4 +45,4 @@ function HomePage() {
   )
 }
 
-export default HomePage;
+export default Temp;
