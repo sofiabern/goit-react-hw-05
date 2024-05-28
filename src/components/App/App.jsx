@@ -9,7 +9,7 @@ import MovieReviews from "../MovieReviews/MovieReviews";
 import Navigation from "../Navigation/Navigation";
 import Loader from "../Loader/Loader";
 
-const Temp = lazy(() => import('../../pages/Temp/Temp'));
+const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 const MoviesPage = lazy(() => import('../../pages/MoviesPage/MoviesPage'));
 const MovieDetailsPage = lazy(() => import('../../pages/MovieDetailsPage/MovieDetailsPage'));
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage'));
@@ -20,7 +20,7 @@ function App() {
       <Navigation />
       <Suspense fallback={<Loader/>}>
         <Routes>
-          <Route path="/" element={<Temp />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
           <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
             <Route path="cast" element={<MovieCast />} />

@@ -6,9 +6,9 @@ import { getDataTrending } from "../../movies-api";
 import MovieList from "../../components/MovieList/MovieList";
 import Loader from "../../components/Loader/Loader";
 
-import css from "./Temp.module.css"
+import css from "./HomePage.module.css"
 
-function Temp() {
+function HomePage() {
   const [movies, setMovies] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -45,4 +45,4 @@ function Temp() {
   )
 }
 
-export default Temp;
+export default HomePage;

@@ -1,11 +1,13 @@
 import css from "./MovieDetails.module.css";
 
+import notFoundImage from '../../images/notfound.jpg';
+
 function MovieDetails({ movie }) {
   const percentageScore = Math.round(movie.vote_average * 10);
   return (
     <div className={css.wrapper}>
       <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : notFoundImage}
         alt={`"${movie.title}" movie poster`}
         width="320px"
       />
