@@ -1,23 +1,38 @@
-.nav{
-    padding: 8px 0px 8px 4px;
-    border-bottom: 1px solid #000000;
+.nav {
+  padding: 24px;
+  width: 100%;
 
-    margin-bottom: 12px;
+  border-bottom: 1px solid #ffffff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+
+ 
 }
 
-.list{
-    display: flex;
-    gap: 16px;
+.list {
+  display: flex;
+  gap: 24px;
 }
 
-.link{
-    font-size: 24px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 300;
-    color: #000000;
-    /* transition: color 300ms ease; */
+.link {
+  font-size: 24px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  transition: color 200ms ease-in-out;
 }
 
-.active{
+.link:hover {
     color: #dc143c;
-}
+  }
+
+
+.active {
+    color: #dc143c;
+  }
+  
+
+
+

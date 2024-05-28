@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getDataCast } from "../../movies-api";
 
+import notFoundImage from "../../images/notfound.jpg";
+
+import css from "./MovieCast.module.css";
+
 function MovieCast() {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
@@ -10,7 +14,7 @@ function MovieCast() {
     async function getResults() {
       try {
         const data = await getDataCast(movieId);
-        const results = await data.cast
+        const results = await data.cast;
         setCast(results);
       } catch (error) {
       } finally {
@@ -19,15 +23,23 @@ function MovieCast() {
     getResults();
   }, [movieId]);
   return (
-    <ul>
+    <ul className={css.list}>
       {cast.map((person) => (
-        <li key={person.id}>
+        <li key={person.id} className={css.item}>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
-            alt=""
+            className={css.img}
+            src={
+              person.profile_path
+                ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
+                : notFoundImage
+            }
+            
+            alt={person.name}
+            width="160px"
+            height="220px"
           />
-          <p>{person.name}</p>
-          <p>Character: {person.character}</p>
+          <p className={css.text}>{person.name}</p>
+          <p className={css.text}>Character: {person.character}</p>
         </li>
       ))}
     </ul>

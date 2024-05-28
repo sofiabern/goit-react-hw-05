@@ -1,0 +1,43 @@
+.bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90px;
+  margin-bottom: 32px;
+
+
+}
+
+.input {
+  width: 320px;
+  padding: 6px 8px;
+  margin-right: 8px;
+  font-size: 18px;
+
+  border: none;
+  border-radius: 4px;
+
+  transition: outline 100ms ease-in-out;
+}
+
+.input:focus {
+  outline: 2px solid crimson;
+}
+
+.button {
+  font-size: 16px;
+  padding: 6px 8px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  background-color: crimson;
+  color: #ffffff;
+
+  transition: color, background-color 200ms ease-in-out;
+}
+
+.button:hover {
+  background-color: #ffffff;
+  color: crimson;
+}

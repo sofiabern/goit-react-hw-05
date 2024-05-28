@@ -1,8 +1,12 @@
-.wrapper{
-    padding: 8px;
+.wrapper {
+  padding: 8px;
 }
 
-.title{
-    font-size: 32px;
-    margin-bottom: 16px;
+.title {
+  font-size: 60px;
+  color: #ffffff;
+  text-align: center;
+
+  margin-top: 90px;
+  margin-bottom: 16px;
 }

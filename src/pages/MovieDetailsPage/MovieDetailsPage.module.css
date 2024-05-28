@@ -1,0 +1,57 @@
+.wrapper {
+  margin-top: 75px;
+  padding: 24px;
+}
+
+.button {
+  font-size: 18px;
+  padding: 8px 10px;
+  display: inline-block;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  background-color: crimson;
+  color: #ffffff;
+
+  transition: color, background-color 200ms ease-in-out;
+
+  margin-bottom: 12px;
+}
+
+.button:hover {
+    background-color: #ffffff;
+    color: crimson;
+  }
+  
+
+  .add-text{
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 12px;
+  }
+
+  .links{
+    display: flex;
+    gap: 12px;
+
+    margin-bottom: 16px;
+  }
+
+  .link {
+    font-size: 20px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: #ffffff;
+    transition: color 200ms ease-in-out;
+  }
+  
+  .link:hover {
+      color: #dc143c;
+    }
+  
+  
+  .active {
+      color: #dc143c;
+    }
+    
+  

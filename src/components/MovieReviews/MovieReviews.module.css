@@ -1,0 +1,13 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    color: #ffffff;
+}
+
+
+.text{
+    font-size: 18px;
+    color: #ffffff;
+}

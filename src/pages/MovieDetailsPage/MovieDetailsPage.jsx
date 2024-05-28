@@ -1,9 +1,18 @@
 import { useState, useEffect, useRef } from "react";
-import { useParams, Link, Outlet, useLocation } from "react-router-dom";
+import { useParams, Link, NavLink, Outlet, useLocation } from "react-router-dom";
+
+import clsx from "clsx";
+
+import css from "./MovieDetailsPage.module.css"
 
 import { getDataDetails } from "../../movies-api";
 
 import MovieDetails from "../../components/MovieDetails/MovieDetails";
+
+function getLinkClass({isActive}){
+  return clsx(css.link, isActive && css.active)
+  }
+  
 
 function MovieDetailsPage() {
   const [selectedMovie, setSelectedMovie] = useState({});
@@ -36,14 +45,16 @@ function MovieDetailsPage() {
   const isSelectedMovieLoaded = selectedMovie.genres;
 
   return (
-    <>
-      <Link to={goBackUrl.current}>Go back</Link>
+    <div className={css.wrapper}>
+      <Link to={goBackUrl.current} className={css.button}>Go back</Link>
       {isSelectedMovieLoaded && <MovieDetails movie={selectedMovie} />}
-      <p>Additional information</p>
-      <Link to="cast">Cast</Link>
-      <Link to="reviews">Reviews</Link>
+      <p className={css["add-text"]}>Additional information</p>
+      <div className={css.links}>
+        <NavLink to="cast" className={getLinkClass}>Cast</NavLink>
+        <NavLink to="reviews" className={getLinkClass}>Reviews</NavLink>
+      </div>
       <Outlet />
-    </>
+    </div>
   );
 }
 

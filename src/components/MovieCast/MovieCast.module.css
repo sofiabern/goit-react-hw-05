@@ -1,0 +1,23 @@
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+
+    color: #ffffff;
+}
+
+.item{
+    width: 160px;
+}
+
+.img{
+    object-fit: cover;
+    object-position: center;
+
+    margin-bottom: 6px;
+}
+
+.text{
+    text-align: center;
+}

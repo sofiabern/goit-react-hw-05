@@ -1,0 +1,14 @@
+.name{
+    text-align: center;
+}
+
+.link-wrapper{
+    padding: 5px 10px;
+}
+
+.img{
+    object-fit: cover;
+    object-position: center;
+
+    margin-bottom: 6px;
+}

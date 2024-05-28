@@ -17,7 +17,6 @@ function MoviesPage() {
       const data = await getDataSearch(query);
       const results = await data.results;
       setMovies(results);
-      console.log(results);
     }
     getResults();
   }, [query]);

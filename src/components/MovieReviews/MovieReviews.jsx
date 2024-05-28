@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 
 import { getDataReviews } from "../../movies-api";
 
+import css from "./MovieReviews.module.css"
+
 function MovieReviews() {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
@@ -27,10 +29,10 @@ function MovieReviews() {
   };
 
   return(
-   <ul>
+   <ul className={css.list}>
     {
-        reviews.map((review) => <li key={review.id}><h2>{review.author_details.username}</h2>
-        <p>{stripHtmlTags(review.content)}</p></li>)
+     reviews.length ? reviews.map((review) => <li key={review.id} className={css.item}><h2>{review.author_details.username}</h2>
+        <p>{stripHtmlTags(review.content)}</p></li>) : <p className={css.text}>There are no reviews yet.</p>
     }
    </ul>
   )
