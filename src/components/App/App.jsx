@@ -9,7 +9,7 @@ import MovieReviews from "../MovieReviews/MovieReviews";
 import Navigation from "../Navigation/Navigation";
 import Loader from "../Loader/Loader";
 
-const HomePage = lazy(() => import('../../pages/Temp/Temp'));
+const Temp = lazy(() => import('../../pages/Temp/Temp'));
 const MoviesPage = lazy(() => import('../../pages/MoviesPage/MoviesPage'));
 const MovieDetailsPage = lazy(() => import('../../pages/MovieDetailsPage/MovieDetailsPage'));
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage'));
