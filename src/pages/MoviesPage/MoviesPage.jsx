@@ -1,33 +1,61 @@
 import { useState, useEffect } from "react";
-import {useLocation, useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 import { getDataSearch } from "../../movies-api";
+
+import Loader from "../../components/Loader/Loader";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 import SearchBar from "../../components/SearchBar/SearchBar";
 import MovieList from "../../components/MovieList/MovieList";
 
 function MoviesPage() {
   const [movies, setMovies] = useState([]);
+  const [isUniqueQuery, setIsUniqueQuery] = useState(false);
+
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query') ?? '';
+  const query = searchParams.get("query") ?? "";
 
   useEffect(() => {
+    if (!query.trim()) {
+      console.log("gecnj")
+      return;
+    }
+    
     async function getResults() {
-      const data = await getDataSearch(query);
-      const results = await data.results;
-      setMovies(results);
+      try {
+        setIsLoading(true);
+        setIsError(false);
+        // setIsUniqueQuery(false)
+
+        const data = await getDataSearch(query);
+        const results = await data.results; 
+        if (!results.length && query) setIsUniqueQuery(true);
+        setMovies(results);
+      } catch (error) {
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
     }
     getResults();
   }, [query]);
 
   const handleSearch = async (value) => {
     setSearchParams({ query: value });
+    setIsUniqueQuery(false)
     setMovies([]);
   };
 
   return (
     <>
+      {isLoading && <Loader />}
+      {isError && <ErrorMessage message={"Oops. Something went wrong. Try again."} />}
+      {isUniqueQuery && <ErrorMessage message={"Your query is too unique. Try another one."}/>}
       <SearchBar onSearch={handleSearch} />
       <MovieList movies={movies} location={location} />
     </>

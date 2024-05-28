@@ -5,9 +5,7 @@ import notFoundImage from '../../images/notfound.jpg';
 import css from "./MovieItem.module.css"
 
 function MovieItem({ movie, location }) {
-  // console.log(movie);
-  // console.log(movie.poster_path)
-
+ 
   return (
     <div>
       <Link to={`/movies/${movie.id}`} state={{ goBackPath: location }} className={css["link-wrapper"]}>

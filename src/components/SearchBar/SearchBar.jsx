@@ -1,13 +1,17 @@
 import { Field, Form, Formik } from "formik";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import css from "./SearchBar.module.css";
+
+// const notify = () => toast("Wow so easy!");
 
 function SearchBar({ onSearch }) {
   return (
     <Formik
       initialValues={{ query: "" }}
       onSubmit={(values, actions) => {
-        if (!values.query) return alert("Type something!");
+        if (!values.query) return toast.error("Type something in");
 
         onSearch(values.query);
 
@@ -27,6 +31,7 @@ function SearchBar({ onSearch }) {
             Search
           </button>
         </div>
+        <ToastContainer />
       </Form>
     </Formik>
   );

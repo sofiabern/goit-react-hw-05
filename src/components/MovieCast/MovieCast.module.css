@@ -1,23 +1,28 @@
-.list{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 
-    color: #ffffff;
+  color: #ffffff;
 }
 
-.item{
-    width: 160px;
+.item {
+  width: 160px;
 }
 
-.img{
-    object-fit: cover;
-    object-position: center;
+.img {
+  object-fit: cover;
+  object-position: center;
 
-    margin-bottom: 6px;
+  margin-bottom: 6px;
 }
 
-.text{
-    text-align: center;
+.text {
+  text-align: center;
+}
+
+.noinfo-text {
+  font-size: 18px;
+  color: #ffffff;
 }
