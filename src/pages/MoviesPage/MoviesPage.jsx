@@ -24,14 +24,14 @@ function MoviesPage() {
     if (!query.trim()) {
       return;
     }
-    
+
     async function getResults() {
       try {
         setIsLoading(true);
         setIsError(false);
 
         const data = await getDataSearch(query);
-        const results = await data.results; 
+        const results = await data.results;
         if (!results.length && query) setIsUniqueQuery(true);
         setMovies(results);
       } catch (error) {
@@ -45,15 +45,19 @@ function MoviesPage() {
 
   const handleSearch = async (value) => {
     setSearchParams({ query: value });
-    setIsUniqueQuery(false)
+    setIsUniqueQuery(false);
     setMovies([]);
   };
 
   return (
     <>
       {isLoading && <Loader />}
-      {isError && <ErrorMessage message={"Oops. Something went wrong. Try again."} />}
-      {isUniqueQuery && <ErrorMessage message={"Your query is too unique. Try another one."}/>}
+      {isError && (
+        <ErrorMessage message={"Oops. Something went wrong. Try again."} />
+      )}
+      {isUniqueQuery && (
+        <ErrorMessage message={"Your query is too unique. Try another one."} />
+      )}
       <SearchBar onSearch={handleSearch} />
       <MovieList movies={movies} location={location} />
     </>
