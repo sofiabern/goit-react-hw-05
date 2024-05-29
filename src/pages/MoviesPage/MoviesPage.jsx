@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 import { getDataSearch } from "../../movies-api";
 
@@ -16,7 +16,6 @@ function MoviesPage() {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query") ?? "";
 
@@ -59,7 +58,7 @@ function MoviesPage() {
         <ErrorMessage message={"Your query is too unique. Try another one."} />
       )}
       <SearchBar onSearch={handleSearch} />
-      <MovieList movies={movies} location={location} />
+      <MovieList movies={movies} />
     </>
   );
 }

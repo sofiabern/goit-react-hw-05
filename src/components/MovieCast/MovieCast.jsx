@@ -14,16 +14,19 @@ function MovieCast() {
   const { movieId } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [dataFetched, setDataFetched] = useState(false);
 
   useEffect(() => {
     async function getResults() {
       try {
         setIsLoading(true);
         setIsError(false);
+        setDataFetched(false);
 
         const data = await getDataCast(movieId);
-        const results = await data.cast;
+        const results = data.cast;
         setCast(results);
+        setDataFetched(true);
       } catch (error) {
         setIsError(true);
       } finally {
@@ -35,8 +38,16 @@ function MovieCast() {
   return (
     <>
       {isLoading && <Loader />}
-      {isError && <ErrorMessage message={"Oops. Something went wrong. Try again."} />}
-      {cast.length ? (
+      {isError && (
+        <ErrorMessage message={"Oops. Something went wrong. Try again."} />
+      )}
+
+      {dataFetched && cast.length === 0 && (
+        <p className={css["noinfo-text"]}>
+          There is no information about the cast.
+        </p>
+      )}
+      {cast.length > 0 && (
         <ul className={css.list}>
           {cast.map((person) => (
             <li key={person.id} className={css.item}>
@@ -56,10 +67,6 @@ function MovieCast() {
             </li>
           ))}
         </ul>
-      ) : (
-        <p className={css["noinfo-text"]}>
-          There is no information about the cast.
-        </p>
       )}
     </>
   );

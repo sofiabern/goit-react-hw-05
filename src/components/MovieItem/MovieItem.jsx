@@ -8,7 +8,7 @@ function MovieItem({ movie, location }) {
  
   return (
     <div>
-      <Link to={`/movies/${movie.id}`} state={{ goBackPath: location }} className={css["link-wrapper"]}>
+      <Link to={`/movies/${movie.id}`} state={{ from: location }} className={css["link-wrapper"]}>
         <img loading="lazy"
         className={css.img}
           src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : notFoundImage}
