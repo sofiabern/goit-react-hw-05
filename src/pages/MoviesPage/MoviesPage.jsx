@@ -57,7 +57,7 @@ function MoviesPage() {
       {isUniqueQuery && (
         <ErrorMessage message={"Your query is too unique. Try another one."} />
       )}
-      <SearchBar  key={query} onSearch={handleSearch} value = {query}/>
+      <SearchBar key={query} onSearch={handleSearch}/>
       <MovieList movies={movies} />
     </>
   );
