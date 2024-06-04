@@ -7,10 +7,11 @@ import css from "./SearchBar.module.css";
 
 function SearchBar({ onSearch }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get("query") ?? "";
+  let query = searchParams.get("query") ?? "";
   return (
     <Formik
       initialValues={{ query: query }}
+      enableReinitialize = {true}
       onSubmit={(values, actions) => {
         
         if (!values.query) return toast.error("Type something in.");
@@ -19,6 +20,8 @@ function SearchBar({ onSearch }) {
 
         onSearch(values.query);
         actions.resetForm();
+        
+    
       }}
     >
       <Form className={css.bar}>
